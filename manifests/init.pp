@@ -43,6 +43,11 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class mac_csi_secure {
-
-
+  software_default { 'AutomaticCheckEnabled':
+    ensure => present,
+    domain => '/Library/Preferences/com.apple.SoftwareUpdate'
+    key    => 'AutomaticCheckEnabled',
+    type   => 'int',
+    value  => '1',
+  }
 }
