@@ -43,11 +43,32 @@
 # Copyright 2016 Your name here, unless otherwise noted.
 #
 class hardened_macos {
+  #1.2 Enable AutoUpdate
   software_default { 'AutomaticCheckEnabled':
     ensure => present,
-    domain => '/Library/Preferences/com.apple.SoftwareUpdate'
+    domain => '/Library/Preferences/com.apple.SoftwareUpdate',
     key    => 'AutomaticCheckEnabled',
     type   => 'int',
     value  => '1',
   }
+
+  #1.3 Enable app update installs
+  software_default { 'AutoUpdate':
+    ensure => present,
+    domain => '/Library/Preferences/com.apple.commerce',
+    key    => 'AutoUpdate',
+    type   => 'bool',
+    value  => true,
+  }
+
+  #1.5 Enable OS X update installs
+  software_default {'AutoUpdateRestartRequired':
+    ensure => present,
+    domain => '/Library/Preferences/com.apple.commerce',
+    key    => 'AutoUpdateRestartRequired',
+    type   => 'bool',
+    value  => true,
+  }
+
+
 }
