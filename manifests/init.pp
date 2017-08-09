@@ -70,30 +70,30 @@ class hardened_macos {
     value  => true,
   }
 
-  #2.1.1 Turn off Bluetooth, if no paired device exists
-  software_default { 'ControllerPowerState':
-    ensure => present,
-    domain => '/Library/Preferences/com.apple.Bluetooth',
-    key    => 'ControllerPowerState',
-    type   => 'int',
-    value  => '0',
-  }
-
-  #2.3.4 Set a screen corner to Start Screen Saver
-  software_default { 'wvous-tr-corner':
-    ensure => present,
-    domain => '~/Library/Preferences/com.apple.dock',
-    key    => 'wvous-tr-corner',
-    type   => 'int',
-    value  => '5',
-  }
-
-  #2.6.3 Enable Firewall
-  software_default { 'globalstate':
-    ensure => present,
-    domain => '/Library/Preferences/com.apple.alf',
-    key    => 'globalstate',
-    type   => 'int',
-    value  => '2', #1 or 2
-  }
+  # #2.1.1 Turn off Bluetooth, if no paired device exists
+  # software_default { 'ControllerPowerState':
+  #   ensure => present,
+  #   domain => '/Library/Preferences/com.apple.Bluetooth',
+  #   key    => 'ControllerPowerState',
+  #   type   => 'int',
+  #   value  => '0',
+  # }
+# 
+  # #2.3.4 Set a screen corner to Start Screen Saver
+  # software_default { 'wvous-tr-corner':
+  #   ensure => present,
+  #   domain => '~/Library/Preferences/com.apple.dock',
+  #   key    => 'wvous-tr-corner',
+  #   type   => 'int',
+  #   value  => '5',
+  # }
+# 
+  # #2.6.3 Enable Firewall
+  # software_default { 'globalstate':
+  #   ensure => present,
+  #   domain => '/Library/Preferences/com.apple.alf',
+  #   key    => 'globalstate',
+  #   type   => 'int',
+  #   value  => '2', #1 or 2
+  # }
 }

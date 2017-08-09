@@ -18,7 +18,7 @@ Puppet::Type.type(:software_default).provide(:default) do
   end
 
   def create
-    defaults(['write', resource[:domain], resource[:key], resource[:value]])
+    defaults(['write', resource[:domain], resource[:key], "-#{resource[:type]}", resource[:value]])
   end
 
   def destroy
