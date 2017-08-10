@@ -18,7 +18,7 @@ Puppet::Type.type(:software_default).provide(:default) do
   end
 
   def create
-    defaults(['write', resource[:domain], resource[:key], "-#{resource[:type]}", resource[:value]])
+    defaults(['write', resource[:domain], resource[:key], resource[:value]])
   end
 
   def destroy
@@ -27,5 +27,9 @@ Puppet::Type.type(:software_default).provide(:default) do
 
   def value
     get_domain_key_value(resource[:domain], resource[:key])
+  end
+
+  def value=(val)
+    defaults(['write', resource[:domain], resource[:key], val])
   end
 end
